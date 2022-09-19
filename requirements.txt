@@ -1,0 +1,4 @@
+pandas==1.4.3
+numpy
+scikit-learn==1.1.2
+flask
