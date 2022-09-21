@@ -6,3 +6,5 @@
 *.pkl
 unused
 __pycache__
+gcloud/templates
+gcloud/model.pkl

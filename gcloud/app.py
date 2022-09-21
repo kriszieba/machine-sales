@@ -8,16 +8,16 @@ app = Flask(__name__)
 @app.route('/')
 def home():
 	return render_template('home.html')
-    
+	
 @app.route('/codes')
 def codes():
-	return render_template('category_description.json')    
+	return render_template('category_description.json')
     
 @app.route('/predict', methods = ['POST'])
 def predict():
-	filename = './notebooks_data/model.pkl'
+	filename = './model.pkl'
 	model = pickle.load(open(filename, 'rb'))
-
+	
 	if request.method == 'POST':
 		ProductSize = request.form['ProductSize']
 		YearMade = request.form['YearMade']
@@ -42,4 +42,4 @@ def predict():
 	return render_template('result.html', prediction=prediction_str)
 
 if __name__ == '__main__':
-    app.run(debug=True,host='0.0.0.0')
+	app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))

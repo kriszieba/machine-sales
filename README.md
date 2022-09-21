@@ -25,3 +25,6 @@ Run:
 python app.py
 ```
 
+## Check model online
+Ask author for the link
+
