@@ -24,15 +24,13 @@ def predict():
 		fiBaseModel = request.form['fiBaseModel']
 		fiSecondaryDesc = request.form['fiSecondaryDesc']
 		SaleYear = request.form['SaleYear']
-		fiProductClassDesc = request.form['fiProductClassDesc']
 
 	d = {
-	    'ProductSize':[ProductSize], 
-	    'YearMade':[YearMade], 
+	    'SaleYear':[SaleYear],
+	    'fiSecondaryDesc':[fiSecondaryDesc],
 	    'fiBaseModel':[fiBaseModel], 
-	    'fiSecondaryDesc':[fiSecondaryDesc], 
-	    'SaleYear':[SaleYear], 
-	    'fiProductClassDesc':[fiProductClassDesc]
+	    'ProductSize':[ProductSize], 
+	    'YearMade':[YearMade],      
 	}
 
 	df_test = pd.DataFrame(d, index=[0])
