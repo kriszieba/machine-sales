@@ -36,7 +36,7 @@ def predict():
 	    'YearMade':YearMade, 
 	    'fiBaseModel':fiBaseModel, 
 	    'fiProductClassDesc':fiProductClassDesc,  #
-    }
+    	}
 
 	df_test = pd.DataFrame(d, index=[0])
 	prediction = model.predict(df_test)

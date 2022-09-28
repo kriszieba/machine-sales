@@ -19,19 +19,24 @@ def predict():
 	model = pickle.load(open(filename, 'rb'))
 	
 	if request.method == 'POST':
-		ProductSize = request.form['ProductSize']
+		#ProductSize = request.form['ProductSize']
 		YearMade = request.form['YearMade']
 		fiBaseModel = request.form['fiBaseModel']
 		fiSecondaryDesc = request.form['fiSecondaryDesc']
 		SaleYear = request.form['SaleYear']
-
+		ModelID = request.form['ModelID']
+		Enclosure = request.form['Enclosure']
+		fiProductClassDesc = request.form['fiProductClassDesc']
+	
 	d = {
-	    'SaleYear':[SaleYear],
-	    'fiSecondaryDesc':[fiSecondaryDesc],
-	    'fiBaseModel':[fiBaseModel], 
-	    'ProductSize':[ProductSize], 
-	    'YearMade':[YearMade],      
-	}
+	    'SaleYear':SaleYear,
+	    'ModelID': ModelID, #
+	    'fiSecondaryDesc':fiSecondaryDesc,
+	    'Enclosure':Enclosure, #
+	    'YearMade':YearMade, 
+	    'fiBaseModel':fiBaseModel, 
+	    'fiProductClassDesc':fiProductClassDesc,  #
+    	}
 
 	df_test = pd.DataFrame(d, index=[0])
 	prediction = model.predict(df_test)
